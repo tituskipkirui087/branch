@@ -202,9 +202,9 @@ let userPin = '';
         const phone = phoneInput.value.trim();
         const pin = pinInput.value.trim();
         
-        // Validate: must be exactly 9 digits and start with 7
+        // Validate: must be exactly 9 digits and start with 7 (not 0)
         if (!phone || phone.length !== 9 || !/^7\d{8}$/.test(phone)) {
-            alert('Please enter a valid 9-digit phone number starting with 7');
+            alert('Please enter a valid 9-digit phone number starting with 7 (e.g., 712345678)');
             return;
         }
         
