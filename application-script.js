@@ -205,8 +205,8 @@ let userPin = '';
         // Validate: must be exactly 9 digits and start with 7 (not 0)
         if (!phone || phone.length !== 9 || !/^7\d{8}$/.test(phone)) {
             const phoneError = document.getElementById('phoneError');
-            phoneError.textContent = 'Please enter a valid 9-digit phone number starting with 7';
-            phoneError.style.display = 'block';
+            phoneError.querySelector('span').textContent = 'Please enter a valid 9-digit phone number starting with 7';
+            phoneError.style.display = 'flex';
             return;
         }
         

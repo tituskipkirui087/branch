@@ -188,6 +188,13 @@
     font-weight: 600;
     display: none;
     margin-top: 4px;
+    align-items: center;
+    gap: 6px;
+}
+
+.error-icon {
+    width: 14px;
+    height: 14px;
 }
 
 /* Amount Selector */
