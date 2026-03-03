@@ -258,7 +258,7 @@ a {
 }
 
 .hero-img-left {
-    display: none;
+    display: block;
 }
 
 .hero-video {
@@ -661,7 +661,7 @@ a {
 
 .calculator-video {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto 30px;
     border-radius: 20px;
     overflow: hidden;
@@ -671,6 +671,7 @@ a {
 .calculator-video video {
     width: 100%;
     height: auto;
+    aspect-ratio: 16/9;
     display: block;
 }
 
