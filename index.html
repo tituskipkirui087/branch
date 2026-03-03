@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branch Kenya - Fast & Secure Loans in Kenya</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Get instant personal loans from KES 3,000 to KES 1,000,000. Fast approval, transparent terms, and secure applications. Licensed lender in Kenya.">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+                <img src="branch.webp" alt="Branch" class="logo-img" style="height: 36px; width: auto;">
+            </div>
+            <div class="nav-links">
+                <a href="#calculator">Loans</a>
+                <a href="#features">Calculate</a>
+                <a href="#reviews">About</a>
+            </div>
+            <a href="application.html" class="nav-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- ========== Hero Section ========== -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Simple Loans<br>From <span class="highlight">KES 3,000 - 1,000,000</span></h1>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">500K+</div>
+                        <div class="stat-label">Customers</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">KES 25B+</div>
+                        <div class="stat-label">Disbursed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Rating</div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <button class="cta-button" onclick="window.location.href='application.html'">
+                        Get Started
+                        <span class="arrow">→</span>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-video">
+                    <video controls autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:20px;">
+                        <source src="Branch Playstore Animation - Branch International (1080p, h264, youtube).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <img src="Branch2.webp" alt="Branch App" class="hero-img-right">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Calculator Section ========== -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Calculate Your Loan</h2>
+                <p class="section-subtitle">Get instant estimates with our transparent calculator</p>
+            </div>
+
+            <div class="calculator-card">
+                <div class="calculator-inputs">
+                    <div class="calc-group">
+                        <label>Loan Amount</label>
+                        <div class="amount-display">
+                            <span class="currency">KES</span>
+                            <input type="number" id="calcAmount" value="30000" min="3000" max="1000000" step="1000">
+                        </div>
+                        <input type="range" id="calcSlider" min="3000" max="1000000" value="30000" step="1000">
+                        <div class="range-labels">
+                            <span>KES 3,000</span>
+                            <span>KES 1,000,000</span>
+                        </div>
+                    </div>
+
+                    <div class="calc-group">
+                        <label>Loan Term</label>
+                        <select id="calcTerm">
+                            <option value="3">3 Months</option>
+                            <option value="6">6 Months</option>
+                            <option value="12" selected>12 Months</option>
+                            <option value="24">24 Months</option>
+                            <option value="36">36 Months</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="calculator-results">
+                    <div class="result-item">
+                        <span class="result-label">Monthly Payment</span>
+                        <span class="result-value" id="monthlyPayment">KES 2,760</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Interest Rate (APR)</span>
+                        <span class="result-value">12%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Repayment</span>
+                        <span class="result-value" id="totalRepayment">KES 33,120</span>
+                    </div>
+                </div>
+
+                <button class="cta-button" onclick="window.location.href='application.html'">
+                    Apply Now - Get Instant Decision
+                    <span class="arrow">→</span>
+                </button>
+
+                <div class="calculator-footer">
+                    <p>✓ No hidden fees • ✓ No early repayment penalties • ✓ Fast approval</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Features Section ========== -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Branch?</h2>
+                <p class="section-subtitle">We make borrowing easy, fast, and transparent</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Approval</h3>
+                    <p>Get approved in just 15 minutes with our automated system</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>100% Transparent</h3>
+                    <p>No hidden fees. What you see is what you pay. Always.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Bank-Level Security</h3>
+                    <p>256-bit SSL encryption protects all your personal information</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Apply from anywhere, anytime on any device</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Flexible Payments</h3>
+                    <p>Choose your payment schedule that fits your budget</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>No Early Payment Penalty</h3>
+                    <p>Pay off your loan early without any additional charges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security" class="security-section">
+        <div class="container">
+            <div class="security-content">
+                <div class="security-text">
+                    <h2 class="section-title">Your Security is Our Priority</h2>
+                    <p class="section-subtitle">We use industry-leading security measures to protect your data</p>
+                    
+                    <div class="security-features">
+                        <div class="security-item">
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>256-bit SSL Encryption</strong>
+                                <p>Same level of security used by major banks</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Licensed & Verified</strong>
+                                <p>Fully licensed and regulated by Central Bank of Kenya</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Data Privacy Guaranteed</strong>
+                                <p>We never sell or share your personal information</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Reviews Section ========== -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-subtitle">Join thousands of satisfied customers</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Fastest loan I ever got! Applied in the morning and had money by afternoon."</p>
+                    <p class="review-author">- John M., Nairobi</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Great customer service and very transparent with their terms."</p>
+                    <p class="review-author">- Sarah K., Mombasa</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Been using Branch for 2 years now. Always reliable and trustworthy."</p>
+                    <p class="review-author">- David L., Kisumu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA Section ========== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Join over 500,000 customers who trust Branch for their financial needs</p>
+            <button class="cta-button" onclick="window.location.href='application.html'">
+                Apply Now
+                <span class="arrow">→</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ========== Footer Section ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <p class="footer-copy">&copy; 2024 Branch Kenya. All rights reserved.</p>
+                <p class="footer-loan-info">
+                    Branch offers loans from KES 500 to KES 1,000,000. Loan terms range from 1 – 12 weeks. 
+                    Interest ranges from 17% – 35% APR. Standard SMS and data charges may apply.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-float-label" id="chatFloatLabel">Chat With Us</div>
+        <button class="chat-toggle" onclick="toggleChat()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z" fill="white"/>
+            </svg>
+        </button>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="chat-avatar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 5C13.66 5 15 6.34 15 8C15 9.66 13.66 11 12 11C10.34 11 9 9.66 9 8C9 6.34 10.34 5 12 5ZM12 19.2C9.5 19.2 7.29 17.92 6 15.98C6.03 13.99 10 12.9 12 12.9C13.99 12.9 17.97 13.99 18 15.98C16.71 17.92 14.5 19.2 12 19.2Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Branch AI Assistant</h3>
+                        <span class="chat-status"><span class="status-dot"></span> Online</span>
+                    </div>
+                </div>
+                <button class="chat-close" onclick="toggleChat()">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 5C13.66 5 15 6.34 15 8C15 9.66 13.66 11 12 11C10.34 11 9 9.66 9 8C9 6.34 10.34 5 12 5Z" fill="#0072CE"/>
+                        </svg>
+                    </div>
+                    <div class="message-content">
+                        <p>Hello! I'm your Branch AI Assistant. How can I help you today?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask me anything about Branch loans..." onkeypress="handleChatKeyPress(event)">
+                <button onclick="sendChatMessage()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Approval Notification Popup -->
+    <div class="approval-notification" id="approvalNotification">
+        <div class="approval-avatar">
+            <img src="branch.webp" alt="Branch" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+        </div>
+        <div class="approval-details">
+            <div class="approval-header">
+                <p class="approval-name" id="approvalText">John Koech</p>
+                <span class="approval-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="white"/>
+                    </svg>
+                    Approved
+                </span>
+            </div>
+            <p class="approval-amount">KES 150,000</p>
+            <span class="approval-time">Just now</span>
+        </div>
+    </div>
+
+    <script src="landing-script.js"></script>
+</body>
+</html>
